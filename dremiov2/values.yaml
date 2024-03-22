@@ -213,8 +213,8 @@ executor:
 
   # By default, the number of Engines is static. Enable the Node Lifecycle Service
   # to enable dynamic scaling.
-   nodeLifecycleService:
-     enabled: false
+  nodeLifecycleService:
+    enabled: false
   #   scalingMetrics:
   #     default:
   #       enabled: true
