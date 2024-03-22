@@ -125,7 +125,7 @@ spec:
         image: {{ $.Values.image }}:{{ $.Values.imageTag }}
         imagePullPolicy: IfNotPresent
         securityContext:
-          runAsUser: 1000710000
+          runAsUser: 65533
         volumeMounts:
         - name: dremio-master-volume
           mountPath: /opt/dremio/data
