@@ -134,7 +134,7 @@ spec:
         - name: datadir
           mountPath: /data
       securityContext:
-        runAsUser: 1000
+        runAsUser: 1000710000
         fsGroup: 1000
       {{- include "dremio.imagePullSecrets" $ | nindent 6 }}
   volumeClaimTemplates:
