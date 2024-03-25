@@ -89,7 +89,7 @@ spec:
         image: {{ $.Values.image }}:{{ $.Values.imageTag }}
         imagePullPolicy: IfNotPresent
         securityContext:
-          runAsUser: 1000710000
+          runAsUser: 1000
         volumeMounts:
         - name: {{ template "dremio.executor.volumeClaimName" (list $ $engineName) }}
           mountPath: /opt/dremio/data
