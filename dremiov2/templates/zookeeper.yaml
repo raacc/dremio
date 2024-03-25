@@ -95,10 +95,6 @@ spec:
             echo "ZOO_SERVERS=${ZOO_SERVERS}"
             export ZOO_SERVERS
 
-            tail -f /dev/null
-
-            chmod -R a+rwx /conf
-
             /docker-entrypoint.sh
             zkServer.sh start-foreground
         env:
