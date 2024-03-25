@@ -95,7 +95,9 @@ spec:
             echo "ZOO_SERVERS=${ZOO_SERVERS}"
             export ZOO_SERVERS
 
-            RUN chmod -R a+rwx /conf
+            tail -f /dev/null
+
+            chmod -R a+rwx /conf
 
             /docker-entrypoint.sh
             zkServer.sh start-foreground
@@ -137,6 +139,7 @@ spec:
           mountPath: /data
       securityContext:
         runAsUser: 1000710000
+        allowPrivilegeEscalation: true 
         fsGroup: 1000710000
       {{- include "dremio.imagePullSecrets" $ | nindent 6 }}
   volumeClaimTemplates:
