@@ -129,7 +129,8 @@ spec:
         volumeMounts:
         - name: dremio-master-volume
           mountPath: /opt/dremio/data
-        command: ["chown"]
+        command: ["id"]
+        #command: ["chown"]
         args:
         - "dremio:dremio"
         - "/opt/dremio/data"
