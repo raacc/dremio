@@ -126,11 +126,11 @@ spec:
         imagePullPolicy: IfNotPresent
         securityContext:
           runAsUser: 1000
-          fsGroup: 1000
         volumeMounts:
         - name: dremio-master-volume
           mountPath: /opt/dremio/data
-        command: ["chown"]
+        command: ["whoami"]
+        #command: ["chown"]
         args:
         - "dremio:dremio"
         - "/opt/dremio/data"
