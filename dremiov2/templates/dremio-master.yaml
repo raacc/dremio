@@ -23,11 +23,6 @@ spec:
         dremio-configmap/checksum: {{ (tpl ($.Files.Glob "config/*").AsConfig $) | sha256sum }}
         {{- include "dremio.coordinator.podAnnotations" $ | nindent 8}}
     spec:
-      securityContext:
-        fsGroup: 1000
-        runAsUser: 1000
-        runAsGroup: 1000
-        runAsNonRoot: true
       {{- include "dremio.coordinator.serviceAccount" $ | nindent 6 }}
       affinity:
         podAntiAffinity:
