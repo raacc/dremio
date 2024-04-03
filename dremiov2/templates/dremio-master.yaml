@@ -138,9 +138,16 @@ spec:
         args:
         - "dremio:dremio"
         - "/opt/dremio/data"
+      - name: pre-upgrade-check
+        image: {{ $.Values.image }}:{{ $.Values.imageTag }}
+        imagePullPolicy: IfNotPresent
+        command: ["/bin/sh", "-c", "echo 'Performing pre-upgrade checks'; /* Insert pre-upgrade check commands here */"]
       - name: upgrade-task
         image: {{ $.Values.image }}:{{ $.Values.imageTag }}
         imagePullPolicy: IfNotPresent
+        env:
+        - name: ROCKSDB_VERSION_CHECK
+          value: "true"
         volumeMounts:
         - name: dremio-master-volume
           mountPath: /opt/dremio/data
